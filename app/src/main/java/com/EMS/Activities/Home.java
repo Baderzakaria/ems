@@ -31,7 +31,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -67,13 +66,12 @@ public class Home extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (FirebaseFirestore.getInstance().collection("users").document(currentUser.getUid()).collection("Admin").toString() == "true") {
-            showMessage("you are an admin bro");
-        }
-        // ini
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+//        if (FirebaseFirestore.getInstance().collection("users").document(currentUser.getUid()).collection("Admin").toString() == "true") {
+//            showMessage("you are an admin bro");
+//        }
 
         // ini popup
         iniPopup();
